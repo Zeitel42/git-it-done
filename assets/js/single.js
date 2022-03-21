@@ -26,10 +26,19 @@ var getRepoIssues = function(repo) {
 };
  
 var getRepoName = function() {
+
+// get repo name
   var queryString = document.location.search;
   var repoName = queryString.split("=")[1];
-  getRepoIssues(repoName);
-  repoNameEl.textContent = repoName;
+// display repo name 
+  if(repoName){
+    getRepoIssues(repoName);
+    repoNameEl.textContent = repoName;
+// redirect to home page
+  }else{
+    document.location.replace("./index.html");
+  }
+  
 }
 getRepoName();
 
